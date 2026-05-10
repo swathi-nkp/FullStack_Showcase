@@ -44,7 +44,7 @@ const PROJECTS_DATA = [
   {
     name: 'Multi-Boutique Customization Web Application',
     isLive: true,
-    liveUrl: 'https://boutique-project-xi.vercel.app/',
+    liveUrl: 'https://full-stack-showcase-ob2w.vercel.app/',
     tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Socket.IO'],
     description: [
       'Multi-vendor platform for boutique owners and customers.',
@@ -195,33 +195,33 @@ const HeroSection = () => {
   };
 
   return <section id="home" className="min-h-screen flex items-center justify-center bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-violet-100 via-white to-pink-50 pt-20">
-      <div className="section-container text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-white border border-violet-100 text-primary rounded-2xl text-xs font-bold tracking-[0.2em] uppercase shadow-sm animate-fade-in opacity-0 [animation-fill-mode:forwards]">
-          <span className="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
-          Available for Opportunities
-        </div>
-        <h1 className="text-6xl md:text-8xl font-black text-navy-dark mb-8 tracking-tighter animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:200ms]">
-          Swathi N
-        </h1>
-        <div className="text-2xl md:text-3xl font-medium text-slate-600 mb-6 h-10 animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:400ms]">
-          {text}<span className="text-secondary animate-pulse">_</span>
-        </div>
-        <div className="flex items-center justify-center gap-3 text-slate-500 mb-12 animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:600ms] font-medium">
-          <div className="p-2 bg-white rounded-lg shadow-sm border border-slate-100">
-            <MapPin size={18} className="text-accent" />
-          </div>
-          <span>Chennai, Tamil Nadu</span>
-        </div>
-        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:800ms]">
-          <button onClick={() => scrollTo('projects')} className="btn-primary !bg-primary hover:!bg-primary-dark">
-            View My Work <ChevronDown size={20} className="mt-1" />
-          </button>
-          <button onClick={() => scrollTo('contact')} className="btn-outline !border-secondary !text-secondary hover:!bg-secondary/5">
-            Let's Talk
-          </button>
-        </div>
+    <div className="section-container text-center">
+      <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-white border border-violet-100 text-primary rounded-2xl text-xs font-bold tracking-[0.2em] uppercase shadow-sm animate-fade-in opacity-0 [animation-fill-mode:forwards]">
+        <span className="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+        Available for Opportunities
       </div>
-    </section>;
+      <h1 className="text-6xl md:text-8xl font-black text-navy-dark mb-8 tracking-tighter animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:200ms]">
+        Swathi N
+      </h1>
+      <div className="text-2xl md:text-3xl font-medium text-slate-600 mb-6 h-10 animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:400ms]">
+        {text}<span className="text-secondary animate-pulse">_</span>
+      </div>
+      <div className="flex items-center justify-center gap-3 text-slate-500 mb-12 animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:600ms] font-medium">
+        <div className="p-2 bg-white rounded-lg shadow-sm border border-slate-100">
+          <MapPin size={18} className="text-accent" />
+        </div>
+        <span>Chennai, Tamil Nadu</span>
+      </div>
+      <div className="flex flex-col sm:flex-row gap-5 justify-center items-center animate-fade-in opacity-0 [animation-fill-mode:forwards] [animation-delay:800ms]">
+        <button onClick={() => scrollTo('projects')} className="btn-primary !bg-primary hover:!bg-primary-dark">
+          View My Work <ChevronDown size={20} className="mt-1" />
+        </button>
+        <button onClick={() => scrollTo('contact')} className="btn-outline !border-secondary !text-secondary hover:!bg-secondary/5">
+          Let's Talk
+        </button>
+      </div>
+    </div>
+  </section>;
 };
 
 const AboutSection = () => (
@@ -273,7 +273,7 @@ const SkillsSection = () => {
         <SectionHeading subtitle="My technical toolkit and specialties">Technical Skills</SectionHeading>
         <div className="flex flex-wrap justify-center gap-2 mb-8 reveal">
           {categories.map(cat => (
-            <button 
+            <button
               key={cat}
               onClick={() => setActiveTab(cat)}
               className={`px-6 py-2 rounded-xl text-sm font-semibold transition-all duration-300 border ${activeTab === cat ? 'bg-accent text-white border-accent shadow-lg shadow-accent/30' : 'bg-white text-slate-600 border-slate-200 hover:border-accent/50'}`}
