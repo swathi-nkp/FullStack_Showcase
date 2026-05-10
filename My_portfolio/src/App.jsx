@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, ExternalLink, Menu, X, ChevronDown, ChevronUp, Code, Server, Database, Award, BookOpen, MapPin } from 'lucide-react';
+import { Mail, Phone, ExternalLink, Menu, X, ChevronDown, ChevronUp, Code, Server, Database, Award, BookOpen, MapPin, Download, Eye } from 'lucide-react';
 
 // --- BRAND ICONS (INLINED) ---
 const Github = (props) => (
@@ -26,6 +26,8 @@ const NAV_LINKS = [
   { name: 'Education', href: 'education' },
   { name: 'Contact', href: 'contact' },
 ];
+
+const RESUME_URL = '/Swathi_N_Resume.pdf';
 
 const SOCIAL_LINKS = [
   { name: 'GitHub', href: 'https://github.com/swathi-nkp', icon: <Github size={20} /> },
@@ -72,13 +74,13 @@ const EDUCATION_DATA = [
   {
     degree: '12th Grade',
     institution: 'Natarajan Dhamayanthi Higher Secondary School',
-    duration: '2021-2022',
+    duration: '2020–2022',
     result: '72%'
   },
   {
     degree: '10th Grade',
     institution: 'Natarajan Dhamayanthi Higher Secondary School',
-    duration: '2019-2020',
+    duration: '2020',
     result: '74%'
   },
 ];
@@ -147,6 +149,15 @@ const Navbar = () => {
               </a>
             ))}
           </div>
+          <div className="h-4 w-[1px] bg-slate-200"></div>
+          <a
+            href={RESUME_URL}
+            download="Swathi_N_Resume.pdf"
+            className="flex items-center gap-1.5 px-4 py-2 bg-primary text-white rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-primary-dark transition-all shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30 hover:-translate-y-0.5"
+          >
+            <Download size={14} />
+            Resume
+          </a>
         </div>
 
         <button className="md:hidden p-2 text-navy-dark bg-white rounded-lg shadow-sm border border-slate-100" onClick={() => setIsOpen(!isOpen)}>
@@ -166,14 +177,82 @@ const Navbar = () => {
               <span>{link.name}</span>
             </a>
           ))}
+          <a
+            href={RESUME_URL}
+            download="Swathi_N_Resume.pdf"
+            className="flex items-center gap-2 px-5 py-3 bg-primary text-white rounded-2xl hover:bg-primary-dark transition-all shadow-sm font-bold text-sm"
+          >
+            <Download size={18} />
+            <span>Resume</span>
+          </a>
         </div>
       </div>
     </nav>
   );
 };
 
+// --- RESUME MODAL ---
+const ResumeModal = ({ onClose }) => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handleKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKey);
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex flex-col"
+      style={{ background: 'rgba(10,10,30,0.85)', backdropFilter: 'blur(8px)' }}
+    >
+      {/* Top bar */}
+      <div className="flex items-center justify-between px-6 py-4 bg-white/5 border-b border-white/10 shrink-0">
+        <div className="flex items-center gap-3">
+          <div className="p-2 bg-primary/20 text-primary rounded-lg">
+            <Eye size={20} />
+          </div>
+          <div>
+            <p className="text-white font-bold text-sm tracking-wide">Swathi N — Resume</p>
+            <p className="text-slate-400 text-xs">Swathi_N_Resume.pdf</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <a
+            href={RESUME_URL}
+            download="Swathi_N_Resume.pdf"
+            className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-primary-dark transition-all shadow-sm"
+          >
+            <Download size={14} /> Download
+          </a>
+          <button
+            onClick={onClose}
+            className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-all"
+            aria-label="Close resume"
+          >
+            <X size={22} />
+          </button>
+        </div>
+      </div>
+
+      {/* PDF viewer */}
+      <div className="flex-1 overflow-hidden p-4">
+        <iframe
+          src={`${RESUME_URL}#toolbar=0&navpanes=0`}
+          title="Swathi N Resume"
+          className="w-full h-full rounded-2xl border border-white/10 shadow-2xl bg-white"
+          style={{ minHeight: '0' }}
+        />
+      </div>
+    </div>
+  );
+};
+
 const HeroSection = () => {
   const [text, setText] = useState('');
+  const [showResume, setShowResume] = useState(false);
   const fullText = "Full Stack Web Developer (MERN)";
   const [index, setIndex] = useState(0);
 
@@ -194,7 +273,9 @@ const HeroSection = () => {
     }
   };
 
-  return <section id="home" className="min-h-screen flex items-center justify-center bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-violet-100 via-white to-pink-50 pt-20">
+  return <>
+    {showResume && <ResumeModal onClose={() => setShowResume(false)} />}
+    <section id="home" className="min-h-screen flex items-center justify-center bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-violet-100 via-white to-pink-50 pt-20">
     <div className="section-container text-center">
       <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-white border border-violet-100 text-primary rounded-2xl text-xs font-bold tracking-[0.2em] uppercase shadow-sm animate-fade-in opacity-0 [animation-fill-mode:forwards]">
         <span className="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
@@ -216,12 +297,19 @@ const HeroSection = () => {
         <button onClick={() => scrollTo('projects')} className="btn-primary !bg-primary hover:!bg-primary-dark">
           View My Work <ChevronDown size={20} className="mt-1" />
         </button>
+        <button
+          onClick={() => setShowResume(true)}
+          className="btn-primary !bg-secondary hover:!bg-pink-700 !shadow-secondary/20 flex items-center gap-2"
+        >
+          <Eye size={20} /> View Resume
+        </button>
         <button onClick={() => scrollTo('contact')} className="btn-outline !border-secondary !text-secondary hover:!bg-secondary/5">
           Let's Talk
         </button>
       </div>
     </div>
-  </section>;
+  </section>
+  </>;
 };
 
 const AboutSection = () => (
