@@ -1,32 +1,51 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import heroBanner from '../assets/hero_banner.png';
-import categoriesImg from '../assets/categories.png';
-import boutiquesImg from '../assets/boutiques.png';
-import productsImg from '../assets/products.png';
+
+// Category images
+import sareeImg from '../assets/saree.jfif';
+import bridalImg from '../assets/bridal ware.jfif';
+import kurthiImg from '../assets/kurthi.jfif';
+import laceImg from '../assets/lace.jfif';
+import accessImg from '../assets/access.jfif';
+import lehangas from '../assets/shopping.webp';
+
+// Boutique images
+import boutique1Img from '../assets/boutique3.jfif';
+import boutique2Img from '../assets/boutique2.jfif';
+import boutique3Img from '../assets/boutique1.jfif';
+
+// New Arrivals images
+import new1Img from '../assets/new1.jfif';
+import new2Img from '../assets/new2.jfif';
+import new3Img from '../assets/new3.jfif';
+import new4Img from '../assets/new4.jfif';
+
 
 export default function CustomerHome() {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
 
   const categories = [
-    { name: 'Sarees', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=800' },
-    { name: 'Lehengas', image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&q=80&w=800' },
-    { name: 'Kurtis', image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=800' },
-    { name: 'Lace & Borders', image: 'https://images.unsplash.com/photo-1549439602-43ebca2327af?auto=format&fit=crop&q=80&w=800' },
-    { name: 'Accessories', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800' },
-    { name: 'Bridal Wear', image: 'https://images.unsplash.com/photo-1594465919760-441fe5908ab0?auto=format&fit=crop&q=80&w=800' },
+    { name: 'Sarees', image: sareeImg },
+    { name: 'Lehengas', image: lehangas },
+    { name: 'Kurtis', image: kurthiImg },
+    { name: 'Lace & Borders', image: laceImg },
+    { name: 'Accessories', image: accessImg },
+    { name: 'Bridal Wear', image: bridalImg },
   ];
 
   const boutiques = [
-    { name: 'The Silk Road', category: 'Traditional', rating: 4.9, image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800', desc: 'Specializing in hand-woven heritage silks.' },
-    { name: 'Modern Muse', category: 'Contemporary', rating: 4.8, image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800', desc: 'Contemporary designs for the modern woman.' },
-    { name: 'Artisan Loft', category: 'Bespoke', rating: 5.0, image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=800', desc: 'Custom-tailored masterpieces using rare fabrics.' },
+    { name: 'The Silk Road', category: 'Traditional', rating: 4.9, image: boutique1Img, desc: 'Specializing in hand-woven heritage silks.' },
+    { name: 'Modern Muse', category: 'Contemporary', rating: 4.8, image: boutique2Img, desc: 'Contemporary designs for the modern woman.' },
+    { name: 'Artisan Loft', category: 'Bespoke', rating: 5.0, image: boutique3Img, desc: 'Custom-tailored masterpieces using rare fabrics.' },
   ];
 
   const products = [
-    { name: 'Aurora Silk Gown', price: '$420', image: 'https://images.unsplash.com/photo-1613915611249-1f488f72f0f7?auto=format&fit=crop&q=80&w=800', tag: 'Customizable' },
-    { name: 'Linen Muse Set', price: '$280', image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800', tag: 'New Arrival' },
-    { name: 'Gilded Heritage Necklace', price: '$850', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=800', tag: 'Premium' },
-    { name: 'Structure Wool Coat', price: '$560', image: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&q=80&w=800', tag: 'Customizable' },
+    { name: 'Aurora Silk Gown', price: '$420', image: new1Img, tag: 'Customizable' },
+    { name: 'Linen Muse Set', price: '$280', image: new2Img, tag: 'New Arrival' },
+    { name: 'Gilded Heritage Necklace', price: '$850', image: new3Img, tag: 'Premium' },
+    { name: 'Structure Wool Coat', price: '$560', image: new4Img, tag: 'Customizable' },
   ];
 
   return (
@@ -43,24 +62,24 @@ export default function CustomerHome() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
           </div>
         </div>
 
         <div className="flex items-center space-x-6 text-gray-600">
           <button className="hover:text-[#E91E63] transition-colors relative">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></svg>
             <span className="absolute -top-1 -right-1 bg-[#E91E63] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">2</span>
           </button>
           <button className="hover:text-[#E91E63] transition-colors relative">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
             <span className="absolute -top-1 -right-1 bg-[#E91E63] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">1</span>
           </button>
           <button className="hover:text-[#E91E63] transition-colors">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
           </button>
-          <button className="hover:text-[#E91E63] transition-colors">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <button className="hover:text-[#E91E63] transition-colors" onClick={() => navigate('/account')}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
           </button>
         </div>
       </nav>
@@ -88,7 +107,7 @@ export default function CustomerHome() {
             <p className="text-gray-500">Curated selections for every occasion</p>
           </div>
           <div className="bg-[#E91E63] p-2 rounded-xl text-white cursor-pointer hover:scale-105 transition-transform">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
           </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
@@ -120,7 +139,7 @@ export default function CustomerHome() {
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-2xl font-bold">{btq.name}</h3>
                   <div className="flex items-center text-sm font-bold text-[#C8A96A]">
-                    <svg className="mr-1 fill-[#C8A96A]" width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg className="mr-1 fill-[#C8A96A]" width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
                     {btq.rating}
                   </div>
                 </div>
@@ -140,7 +159,7 @@ export default function CustomerHome() {
             <p className="text-gray-500">The latest pieces from our top boutiques</p>
           </div>
           <button className="text-[#E91E63] font-bold flex items-center group">
-            View All <svg className="ml-2 group-hover:translate-x-1 transition-transform" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            View All <svg className="ml-2 group-hover:translate-x-1 transition-transform" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
           </button>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -149,7 +168,7 @@ export default function CustomerHome() {
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-sm">
                 <img src={prod.image} alt={prod.name} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" />
                 <div className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md hover:text-[#E91E63] transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></svg>
                 </div>
                 <div className="absolute bottom-4 left-4 bg-[#006400] text-white text-[9px] font-bold px-2.5 py-1 rounded-md uppercase tracking-widest">{prod.tag}</div>
               </div>
@@ -197,7 +216,7 @@ export default function CustomerHome() {
 
       {/* Floating Chat */}
       <button className="fixed bottom-8 right-8 bg-[#E91E63] text-white p-5 rounded-2xl shadow-2xl shadow-[#E91E63]/40 hover:scale-110 active:scale-95 transition-all z-50">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
       </button>
     </div>
   );
