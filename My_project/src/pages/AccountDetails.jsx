@@ -7,11 +7,11 @@ export default function AccountDetails() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('profile');
   const [form, setForm] = useState({
-    fullName: 'Sophia Bennett',
-    email: 'sophia.b@example.com',
-    phone: '+1 (555) 123-4567',
-    gender: 'Female',
-    address: '124 Luxury Lane, Apartment 4B, New York, NY',
+    fullName: '',
+    email: '',
+    phone: '',
+    gender: '',
+    address: '',
   });
 
   const orders = [
