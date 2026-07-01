@@ -46,7 +46,7 @@ const PROJECTS_DATA = [
   {
     name: 'Multi-Boutique Customization Web Application',
     isLive: true,
-    liveUrl: 'https://full-stack-showcase-ob2w.vercel.app/',
+    liveUrl: "https://boutique-project-seven.vercel.app/",
     tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Socket.IO'],
     description: [
       'Multi-vendor platform for boutique owners and customers.',
