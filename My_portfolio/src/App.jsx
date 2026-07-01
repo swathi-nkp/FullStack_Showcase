@@ -31,7 +31,7 @@ const RESUME_URL = '/Swathi_N_Resume.pdf';
 
 const SOCIAL_LINKS = [
   { name: 'GitHub', href: 'https://github.com/swathi-nkp', icon: <Github size={20} /> },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/swathi-n-256556402-', icon: <Linkedin size={20} /> },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/swathi-n-256556402/', icon: <Linkedin size={20} /> },
 ];
 
 const SKILLS_DATA = [
