@@ -416,7 +416,7 @@ const ProjectCard = ({ project }) => {
           {isExpanded ? <>Show Less <ChevronUp size={16} /></> : <>Read More <ChevronDown size={16} /></>}
         </button>
         <div className="mt-auto">
-          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary !bg-purple-600 hover:!bg-purple-700 !shadow-purple-200/20 w-full flex items-center justify-center gap-2">
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary !bg-purple-600 hover:!bg-purple-500 !shadow-purple-200/20 w-full flex items-center justify-center gap-2">
             Live Demo <ExternalLink size={18} />
           </a>
         </div>
