@@ -44,6 +44,19 @@ const SKILLS_DATA = [
 
 const PROJECTS_DATA = [
   {
+    name: 'CONCORE — Full-Stack Real Estate & Construction Portfolio Platform',
+    isLive: true,
+    liveUrl: 'https://fullstackdev-red.vercel.app/',
+    tags: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'Mongoose'],
+    description: [
+      'Built a full-stack real estate/construction portfolio portal with a React frontend and a REST API backend using Node.js, Express, and MongoDB.',
+      'Designed Mongoose schemas with enum validation, field sanitization, and automatic timestamps to keep project records (status, type, dates) consistent.',
+      'Implemented server-side query filtering (e.g. status=completed/upcoming) with input validation, returning proper error responses for invalid requests.',
+      'Built a responsive UI with custom Tailwind CSS styling, including a featured-listing grid layout and interactive inquiry/newsletter forms with client-side validation.',
+      'Deployed the backend as a live web service on Render, with environment-based configuration for secure credential management.'
+    ]
+  },
+  {
     name: 'Multi-Boutique Customization Web Application',
     isLive: true,
     liveUrl: "https://boutique-project-seven.vercel.app/",
