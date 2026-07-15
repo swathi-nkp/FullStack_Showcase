@@ -44,6 +44,19 @@ const SKILLS_DATA = [
 
 const PROJECTS_DATA = [
   {
+    name: 'Multi-Boutique Customization Web Application',
+    isLive: true,
+    liveUrl: "https://boutique-project-seven.vercel.app/",
+    tags: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO', 'Google Auth', 'Protected Routes'],
+    description: [
+      'Developed a multi-vendor platform for boutique owners and customers with clean, responsive design using Tailwind CSS.',
+      'Implemented secure user authentication with Google Auth (OAuth) and set up protected routing for customer and vendor portals.',
+      'Engineered interactive outfit customization features and comprehensive product browsing with dynamic category filters.',
+      'Integrated real-time chat functionality using Socket.IO to enable direct communication between customers and boutique owners.',
+      'Built a backend with Node.js, Express, and MongoDB to handle scalable RESTful APIs and real-time event messaging.'
+    ]
+  },
+  {
     name: 'CONCORE — Full-Stack Real Estate & Construction Portfolio Platform',
     isLive: true,
     liveUrl: 'https://fullstackdev-red.vercel.app/',
@@ -54,19 +67,6 @@ const PROJECTS_DATA = [
       'Implemented server-side query filtering (e.g. status=completed/upcoming) with input validation, returning proper error responses for invalid requests.',
       'Built a responsive UI with custom Tailwind CSS styling, including a featured-listing grid layout and interactive inquiry/newsletter forms with client-side validation.',
       'Deployed the backend as a live web service on Render, with environment-based configuration for secure credential management.'
-    ]
-  },
-  {
-    name: 'Multi-Boutique Customization Web Application',
-    isLive: true,
-    liveUrl: "https://boutique-project-seven.vercel.app/",
-    tags: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Socket.IO'],
-    description: [
-      'Multi-vendor platform for boutique owners and customers.',
-      'Comprehensive product browsing with category filters.',
-      'Interactive outfit customization features.',
-      'Real-time chat functionality integrated via Socket.IO.',
-      'Built with RESTful APIs for scalable data management.'
     ]
   }
 ];
