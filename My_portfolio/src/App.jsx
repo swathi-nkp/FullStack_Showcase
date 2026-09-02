@@ -252,11 +252,11 @@ const ResumeModal = ({ onClose }) => {
 
       {/* PDF viewer */}
       <div className="flex-1 overflow-hidden p-4">
-        <iframe
-          src={`${RESUME_URL}#toolbar=0&navpanes=0`}
+        <embed
+          src={RESUME_URL}
+          type="application/pdf"
           title="Swathi N Resume"
           className="w-full h-full rounded-2xl border border-white/10 shadow-2xl bg-white"
-          style={{ minHeight: '0' }}
         />
       </div>
     </div>
